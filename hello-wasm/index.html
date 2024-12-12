@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WASM Hello World</title>
+</head>
+<body>
+    <h1>WASM Hello World</h1>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button id="greetButton">Greet</button>
+
+    <script type="module">
+        import init, { greet } from './pkg/hello_wasm.js';
+
+        init().then(() => {
+            await init();
+            document.getElementById('greetButton').addEventListener('click', () => {
+                const name = document.getElementById('name').value;
+                greet(name);
+            });
+        });
+    </script>
+</body>
+</html>
