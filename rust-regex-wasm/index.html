@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WASM Rust Regex</title>
+</head>
+<body>
+    <h1>WASM Rust Regex</h1>
+    <input type="text" id="regex" placeholder="regex">
+    <input type="text" id="subject" placeholder="subject">
+    <button id="check">Check</button>
+
+    <script type="module">
+        import init, { is_match } from './pkg/rust_regex_wasm.js';
+
+        init().then(() => {
+            document.getElementById('check').addEventListener('click', () => {
+                const regex = document.getElementById('regex').value;
+                const subject = document.getElementById('subject').value;
+                alert(is_match(regex, subject));
+            });
+        });
+    </script>
+</body>
+</html>
