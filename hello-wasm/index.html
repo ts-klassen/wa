@@ -13,7 +13,6 @@
         import init, { greet } from './pkg/hello_wasm.js';
 
         init().then(() => {
-            await init();
             document.getElementById('greetButton').addEventListener('click', () => {
                 const name = document.getElementById('name').value;
                 greet(name);
